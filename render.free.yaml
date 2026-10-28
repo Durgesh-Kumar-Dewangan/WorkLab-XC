@@ -1,0 +1,31 @@
+# Free hosting for the API on Render, with the database on Supabase (free) and the web front end on Vercel (free).
+# Render: New > Blueprint > pick this repo > and when it asks, choose this file (render.free.yaml).
+# Fill the `sync: false` values in the dashboard. Step by step: docs/DEPLOY-FREE.md
+#
+# The free web service sleeps after 15 minutes without a visit and takes about a minute to wake. The GitHub Action in
+# .github/workflows/tick.yml visits it every 10 minutes, which keeps unfinished lessons moving (it does not keep it awake all day).
+services:
+  - type: web
+    name: worklab-xc-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - { key: WLXC_ENV, value: production }
+      - { key: TRUST_PROXY, value: "1" }
+      - { key: WORKER_MODE, value: inline }       # one free service: the worker runs inside it
+      - { key: INPROCESS_TICK_SEC, value: "60" }
+      - { key: WEB_CONCURRENCY, value: "1" }
+      - { key: PG_POOL_MAX, value: "5" }          # the Supabase free plan allows a small number of connections
+      - { key: APP_URL, sync: false }             # your Vercel address, e.g. https://worklab-xc.vercel.app
+      - { key: DATABASE_URL, sync: false }        # Supabase > Connect > Session pooler (see docs/DEPLOY-FREE.md)
+      - { key: SESSION_SECRET, generateValue: true }
+      - { key: CRON_SECRET, generateValue: true }
+      - { key: LLM_ORDER, value: "gemini,groq,mistral,openrouter,cloudflare" }
+      - { key: GEMINI_API_KEY, sync: false }      # free key: https://aistudio.google.com/apikey
+      - { key: GROQ_API_KEY, sync: false }        # free key: https://console.groq.com/keys
+      - { key: ADMIN_EMAILS, sync: false }
+      - { key: RESEND_API_KEY, sync: false }      # optional: sign-up and receipt emails (free tier)
