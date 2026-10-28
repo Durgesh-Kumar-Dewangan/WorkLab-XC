@@ -21,7 +21,8 @@ services:
       - { key: WEB_CONCURRENCY, value: "1" }
       - { key: PG_POOL_MAX, value: "5" }          # the Supabase free plan allows a small number of connections
       - { key: APP_URL, sync: false }             # your Vercel address, e.g. https://worklab-xc.vercel.app
-      - { key: DATABASE_URL, sync: false }        # Supabase > Connect > Session pooler (see docs/DEPLOY-FREE.md)
+      - {key: DATABASE_URL
+        value: "postgresql://postgres.eviesoyhibblssardjei:[YOUR-PASSWORD]@aws-0-us-east-1.pooler.supabase.com:5432/postgres" }      # Supabase > Connect > Session pooler (see docs/DEPLOY-FREE.md)
       - { key: SESSION_SECRET, generateValue: true }
       - { key: CRON_SECRET, generateValue: true }
       - { key: LLM_ORDER, value: "gemini,groq,mistral,openrouter,cloudflare" }
