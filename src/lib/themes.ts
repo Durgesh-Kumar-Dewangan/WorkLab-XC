@@ -15,7 +15,7 @@ export const THEMES: ThemeDefinition[] = [
 ];
 
 export const ACCENTS = ['#2563eb', '#d62976', '#12a150', '#e07a10', '#8b5cf6'];
-export const themes = ['system', 'light', 'dark'];
+export const themes = ['light', 'dark'];
 export const themeOptions = themes.map((id) => ({ id, label: id[0].toUpperCase() + id.slice(1) }));
 
 export function applyTheme(theme: string) {
@@ -24,6 +24,5 @@ export function applyTheme(theme: string) {
 
 export function applyCustom(custom: { theme?: string; accent?: string; scenicTone?: string }) {
   if (typeof document === 'undefined') return;
-  if (custom.theme) document.documentElement.dataset.theme = custom.theme;
   if (custom.accent) document.documentElement.style.setProperty('--accent', custom.accent);
 }

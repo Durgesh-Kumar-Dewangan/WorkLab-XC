@@ -24,8 +24,7 @@ export function PrefsSync() {
   useEffect(() => {
     if (!hydrated) return;
     const r = document.documentElement;
-    if (theme && theme !== 'system') r.dataset.theme = theme;
-    else delete r.dataset.theme;
+    r.dataset.theme = theme === 'dark' ? 'dark' : 'light';
     if (motion === 'off') r.dataset.motion = 'off';
     else delete r.dataset.motion;
     if (textSize === 'large' || textSize === 'small') r.dataset.text = textSize;
