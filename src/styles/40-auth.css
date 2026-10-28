@@ -1,0 +1,215 @@
+/* auth */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.auth-art {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  align-self: start;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px clamp(24px, 4vw, 56px) 40px;
+  border-right: 1px solid var(--line);
+}
+.auth-art .hero-bg {
+  z-index: -1;
+}
+/* the picture scales with the window's height as well as its width, so all of it is always visible */
+.auth-art canvas.halftone {
+  width: min(100%, max(240px, calc((100vh - 560px) * 16 / 11)));
+  height: auto;
+  aspect-ratio: 16/11;
+  margin: auto auto 0;
+  flex: none;
+}
+.auth-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0;
+}
+/* on a short window the three points make way so the whole picture stays in view */
+@media (max-height: 799px) and (min-width: 861px) {
+  .auth-art .auth-pts {
+    display: none !important;
+  }
+  .auth-art canvas.halftone {
+    width: min(100%, max(220px, calc((100vh - 340px) * 16 / 11)));
+  }
+}
+.auth-art blockquote {
+  margin: 0;
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: -0.025em;
+  line-height: 1.14;
+  font-weight: 500;
+  max-width: 18ch;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px clamp(20px, 5vw, 80px) 48px;
+  align-items: center;
+  position: relative;
+}
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.auth-top {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 5vw, 80px);
+  align-items: center;
+}
+.demo-note {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--fg2);
+  padding: 12px 14px;
+  border: 1px dashed var(--line2);
+  border-radius: 10px;
+}
+.or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+.or::before,
+.or::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+.strength {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+.strength i {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line2);
+}
+.strength i.on1 {
+  background: var(--red);
+}
+.strength i.on2 {
+  background: var(--amber);
+}
+.strength i.on3 {
+  background: var(--blue);
+}
+.strength i.on4 {
+  background: var(--green);
+}
+@media (max-width: 860px) {
+  .auth {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* on phones and tablets the picture sits above the form, compact, and all of it shows */
+  .auth-art {
+    position: relative;
+    height: auto;
+    align-self: auto;
+    gap: 0;
+    padding: 16px 20px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    text-align: center;
+  }
+  .auth-art .nav-brand {
+    align-self: flex-start;
+  }
+  .auth-copy {
+    margin: 10px 0 8px;
+    align-items: center;
+  }
+  .auth-art blockquote {
+    max-width: 26ch;
+    font-size: clamp(18px, 5vw, 24px);
+  }
+  .auth-pts {
+    display: none;
+  }
+  .auth-art canvas.halftone {
+    width: min(100%, calc(30vh * 16 / 11), 420px);
+    margin: 4px auto 0;
+  }
+  .auth-form {
+    justify-content: flex-start;
+    padding: 18px clamp(16px, 5vw, 40px) 36px;
+  }
+  .auth-top {
+    position: static;
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    margin-bottom: 18px;
+    justify-content: flex-end;
+  }
+  .auth-top .nav-brand {
+    display: none; /* the picture block above already carries the logo */
+  }
+}
+@media (max-width: 860px) and (max-height: 520px) {
+  .auth-art canvas.halftone {
+    width: min(100%, calc(24vh * 16 / 11));
+  }
+  .auth-copy .label {
+    display: none;
+  }
+}
+@media (max-width: 620px) {
+  .cmdpill {
+    white-space: normal;
+    align-items: flex-start;
+    line-height: 1.5;
+    text-overflow: clip;
+  }
+}
+
+.g-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.g-btn {
+  display: flex;
+  justify-content: center;
+  min-height: 44px;
+}
+.g-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

@@ -1,0 +1,474 @@
+/* Brilliant-style, Windows 11-style and macOS-style themes. Inspired by those looks, not copies.
+   Windows and macOS follow the device's light or dark setting, so each has two palettes.
+   All three build on the light theme's rules, so every colour below is written as a variable, never a fixed cream. */
+
+/* ============================== Brilliant-style ============================== */
+:root[data-theme='brilliant'],
+:root[data-theme='brilliant'] .app,
+:root[data-theme='brilliant'] .site,
+:root[data-theme='brilliant'] .landing {
+  --bg: #f7f9f4;
+  --bg2: #eef3e8;
+  --panel: #ffffff;
+  --panel2: #f1f5ec;
+  --line: #e4eadc;
+  --line2: #cfd9c3;
+  --fg: #1b2a1f;
+  --fg2: #455348;
+  --fg3: #6c7a6f;
+  --blue: #1f8a41;
+  --accent: #1f8a41;
+  --green: #2fa84f;
+  --green-ink: #17803a;
+  --amber: #b86a00;
+  --btn-bg: #2fa84f;
+  --btn-fg: #ffffff;
+  --gray-bar: #e3eadb;
+  --shadow: 0 10px 28px rgba(27, 60, 34, 0.1);
+  color-scheme: light;
+}
+
+:root[data-theme='brilliant'] body,
+:root[data-theme='brilliant'] .app,
+:root[data-theme='brilliant'] .site {
+  background: var(--bg);
+}
+
+:root[data-theme='brilliant'] h1,
+:root[data-theme='brilliant'] h2,
+:root[data-theme='brilliant'] .mini-title {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .app .side {
+  background: #ffffff;
+  border-right: 1px solid var(--line);
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .app .app-main {
+  background: var(--bg);
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .app .side a.nl[aria-current='page'] {
+  background: #e4f5e8;
+  color: #17803a;
+  font-weight: 700;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .card,
+:root[data-skin='on'][data-theme='brilliant'] .app .card,
+:root[data-skin='on'][data-theme='brilliant'] .mini-steps li,
+:root[data-skin='on'][data-theme='brilliant'] .dr-card {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(27, 60, 34, 0.06);
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .btn,
+:root[data-skin='on'][data-theme='brilliant'] .app .btn {
+  background: #fff;
+  color: var(--fg);
+  border: 1.5px solid var(--line2);
+  border-radius: 14px;
+  box-shadow: 0 2px 0 var(--line2);
+  font-weight: 700;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .btn.solid,
+:root[data-skin='on'][data-theme='brilliant'] .app .btn.solid {
+  background: #2fa84f;
+  border-color: #2fa84f;
+  color: #fff;
+  box-shadow: 0 3px 0 #1f7d38;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .btn:active,
+:root[data-skin='on'][data-theme='brilliant'] .app .btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] .side-upgrade {
+  background: #fff1d6;
+  color: #8a5300;
+}
+
+:root[data-skin='on'][data-theme='brilliant'] input,
+:root[data-skin='on'][data-theme='brilliant'] select,
+:root[data-skin='on'][data-theme='brilliant'] textarea,
+:root[data-skin='on'][data-theme='brilliant'] .app .input {
+  background: #fff;
+  border: 1.5px solid var(--line2);
+  border-radius: 12px;
+} /* ============================== Windows 11-style ============================== */
+:root[data-theme='windows'],
+:root[data-theme='windows'] .app,
+:root[data-theme='windows'] .site,
+:root[data-theme='windows'] .landing {
+  --bg: #f3f3f3;
+  --bg2: #ececec;
+  --panel: #ffffff;
+  --panel2: #f6f6f6;
+  --line: #e5e5e5;
+  --line2: #d1d1d1;
+  --fg: #1a1a1a;
+  --fg2: #4a4a4a;
+  --fg3: #6b6b6b;
+  --blue: #0067c0;
+  --accent: #0067c0;
+  --btn-bg: #0067c0;
+  --btn-fg: #ffffff;
+  --gray-bar: #e0e0e0;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='windows'],
+  :root[data-theme='windows'] .app,
+  :root[data-theme='windows'] .site,
+  :root[data-theme='windows'] .landing {
+    --bg: #202020;
+    --bg2: #1b1b1b;
+    --panel: #2b2b2b;
+    --panel2: #333333;
+    --line: #383838;
+    --line2: #4a4a4a;
+    --fg: #ffffff;
+    --fg2: #d0d0d0;
+    --fg3: #a0a0a0;
+    --blue: #60cdff;
+    --accent: #60cdff;
+    --btn-bg: #60cdff;
+    --btn-fg: #00263b;
+    --gray-bar: #3b3b3b;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='windows'] body,
+:root[data-theme='windows'] .app,
+:root[data-theme='windows'] .site {
+  background: var(--bg);
+  font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif;
+}
+
+:root[data-skin='on'][data-theme='windows'] .app .side {
+  background: var(--bg2);
+  border-right: 1px solid var(--line);
+}
+
+:root[data-skin='on'][data-theme='windows'] .app .app-main {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 8px 0 0 0;
+  margin: 8px 0 0 0;
+  min-height: calc(100vh - 8px);
+}
+
+:root[data-skin='on'][data-theme='windows'] .app .side a.nl {
+  border-radius: 6px;
+  position: relative;
+}
+
+:root[data-skin='on'][data-theme='windows'] .app .side a.nl[aria-current='page'] {
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  color: var(--fg);
+}
+
+:root[data-skin='on'][data-theme='windows'] .app .side a.nl[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--blue);
+}
+
+:root[data-skin='on'][data-theme='windows'] .card,
+:root[data-skin='on'][data-theme='windows'] .app .card,
+:root[data-skin='on'][data-theme='windows'] .mini-steps li,
+:root[data-skin='on'][data-theme='windows'] .dr-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-skin='on'][data-theme='windows'] .btn,
+:root[data-skin='on'][data-theme='windows'] .app .btn,
+:root[data-skin='on'][data-theme='windows'] .app .searchbtn,
+:root[data-skin='on'][data-theme='windows'] .app .icon-btn.bordered {
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--line2);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='windows'] .btn:hover,
+:root[data-skin='on'][data-theme='windows'] .app .btn:hover {
+  background: var(--panel2);
+}
+
+:root[data-skin='on'][data-theme='windows'] .btn.solid,
+:root[data-skin='on'][data-theme='windows'] .app .btn.solid {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border-color: var(--btn-bg);
+}
+
+:root[data-skin='on'][data-theme='windows'] input,
+:root[data-skin='on'][data-theme='windows'] select,
+:root[data-skin='on'][data-theme='windows'] textarea,
+:root[data-skin='on'][data-theme='windows'] .app .input {
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--line2);
+  border-bottom-color: var(--fg3);
+  border-radius: 4px;
+}
+
+:root[data-skin='on'][data-theme='windows'] .side-upgrade {
+  background: color-mix(in srgb, var(--blue) 14%, var(--panel));
+  color: var(--fg);
+} /* ============================== macOS-style ============================== */
+:root[data-theme='macos'],
+:root[data-theme='macos'] .app,
+:root[data-theme='macos'] .site,
+:root[data-theme='macos'] .landing {
+  --bg: #ececec;
+  --bg2: #e4e4e6;
+  --panel: #ffffff;
+  --panel2: #f5f5f7;
+  --line: #e1e1e3;
+  --line2: #cfcfd3;
+  --fg: #1d1d1f;
+  --fg2: #4a4a4d;
+  --fg3: #6e6e73;
+  --blue: #007aff;
+  --accent: #007aff;
+  --btn-bg: #007aff;
+  --btn-fg: #ffffff;
+  --gray-bar: #dcdce0;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='macos'],
+  :root[data-theme='macos'] .app,
+  :root[data-theme='macos'] .site,
+  :root[data-theme='macos'] .landing {
+    --bg: #1e1e1e;
+    --bg2: #262628;
+    --panel: #2a2a2c;
+    --panel2: #323235;
+    --line: #3a3a3d;
+    --line2: #4a4a4f;
+    --fg: #f5f5f7;
+    --fg2: #d1d1d6;
+    --fg3: #98989f;
+    --blue: #0a84ff;
+    --accent: #0a84ff;
+    --btn-bg: #0a84ff;
+    --btn-fg: #ffffff;
+    --gray-bar: #3d3d41;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='macos'] body,
+:root[data-theme='macos'] .app,
+:root[data-theme='macos'] .site {
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+}
+
+:root[data-skin='on'][data-theme='macos'] .app .side {
+  background: color-mix(in srgb, var(--bg2) 82%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  border-right: 1px solid var(--line);
+}
+
+:root[data-skin='on'][data-theme='macos'] .app .app-main {
+  background: var(--panel);
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+:root[data-skin='on'][data-theme='macos'] .app .side a.nl {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+:root[data-skin='on'][data-theme='macos'] .app .side a.nl[aria-current='page'] {
+  background: var(--blue);
+  color: #fff;
+}
+
+:root[data-skin='on'][data-theme='macos'] .app .side a.nl[aria-current='page'] svg {
+  color: #fff;
+}
+
+:root[data-skin='on'][data-theme='macos'] .card,
+:root[data-skin='on'][data-theme='macos'] .app .card,
+:root[data-skin='on'][data-theme='macos'] .mini-steps li,
+:root[data-skin='on'][data-theme='macos'] .dr-card {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='macos'] .btn,
+:root[data-skin='on'][data-theme='macos'] .app .btn,
+:root[data-skin='on'][data-theme='macos'] .app .searchbtn,
+:root[data-skin='on'][data-theme='macos'] .app .icon-btn.bordered {
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--line2);
+  border-radius: 7px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  font-weight: 500;
+}
+
+:root[data-skin='on'][data-theme='macos'] .btn.solid,
+:root[data-skin='on'][data-theme='macos'] .app .btn.solid {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+
+:root[data-skin='on'][data-theme='macos'] input,
+:root[data-skin='on'][data-theme='macos'] select,
+:root[data-skin='on'][data-theme='macos'] textarea,
+:root[data-skin='on'][data-theme='macos'] .app .input {
+  background: var(--panel);
+  color: var(--fg);
+  border: 1px solid var(--line2);
+  border-radius: 7px;
+}
+
+:root[data-skin='on'][data-theme='macos'] .side-upgrade {
+  background: color-mix(in srgb, var(--blue) 14%, var(--panel));
+  color: var(--fg);
+} /* the light theme's fixed cream pieces,
+re-coloured from each theme's own variables (so the dark Windows and macOS palettes are not left with cream patches) */
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .acct-card {
+  background: var(--panel2);
+  color: var(--fg);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .acct-card:hover {
+  background: color-mix(in srgb, var(--fg) 8%, var(--panel2));
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .acct-menu {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--fg);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .side
+  a.nl:hover {
+  background: color-mix(in srgb, var(--fg) 7%, transparent);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .callout {
+  background: var(--panel2);
+  color: var(--fg);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .navtag {
+  background: color-mix(in srgb, var(--blue) 16%, var(--panel));
+  color: var(--fg);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .app
+  .bar {
+  background: var(--gray-bar);
+}
+
+:root:is(
+    [data-theme='windows'],
+    [data-theme='macos'],
+    [data-theme='brilliant'],
+    [data-theme='wondering'],
+    [data-theme='instagram'],
+    [data-theme='playful']
+  )
+  .side-stats {
+  color: var(--fg2);
+}

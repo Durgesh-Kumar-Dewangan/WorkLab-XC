@@ -1,0 +1,270 @@
+/* ---------- the lesson controls, small enough to stay out of the way of the board on every screen ---------- */
+.cr-dock {
+  width: min(720px, calc(100% - 24px));
+  padding: 7px 12px 8px;
+  gap: 2px;
+  border-radius: 16px;
+}
+.cr-dockrow {
+  gap: 8px;
+}
+.cr-dock .icon-btn {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+}
+.cr-play {
+  width: 36px;
+  height: 36px;
+}
+.cr-play svg {
+  width: 18px;
+  height: 18px;
+}
+.cr-scrubwrap {
+  height: 22px;
+}
+.cr-time {
+  min-width: 0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.cr-speed {
+  flex: none;
+  min-width: 40px;
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--crl);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f5f8;
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+.cr-speed:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.cr-dockrow.sub {
+  gap: 8px;
+  font-size: 11.5px;
+  line-height: 1.2;
+}
+.cr-slide {
+  max-width: 100%;
+}
+
+/* a phone held upright: the scrubber gets a full line, the buttons sit under it */
+@media (max-width: 520px) {
+  .cr-dock {
+    width: calc(100% - 12px);
+    padding: 6px 10px 7px;
+  }
+  .cr-dock > .cr-dockrow:first-child {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr auto auto;
+    grid-template-areas:
+      'scrub scrub scrub scrub scrub time'
+      'prev play next . speed full';
+    align-items: center;
+    gap: 4px 8px;
+  }
+  .cr-scrubwrap {
+    grid-area: scrub;
+  }
+  .cr-time {
+    display: block;
+    grid-area: time;
+  }
+  .cr-prev {
+    grid-area: prev;
+  }
+  .cr-play {
+    grid-area: play;
+  }
+  .cr-next {
+    grid-area: next;
+  }
+  .cr-speed {
+    grid-area: speed;
+  }
+  .cr-full {
+    grid-area: full;
+  }
+}
+
+/* a phone turned sideways, or any short window: one thin row, and the board gets the rest of the height */
+@media (max-height: 520px) {
+  .cr-dock {
+    width: min(560px, calc(100% - 24px));
+    bottom: max(6px, env(safe-area-inset-bottom));
+    padding: 4px 10px;
+  }
+  .cr-dock > .cr-dockrow:first-child {
+    display: flex;
+    grid-template-areas: none;
+  }
+  .cr-dockrow.sub {
+    display: none;
+  }
+  .cr-dock .icon-btn {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+  .cr-play {
+    width: 30px;
+    height: 30px;
+  }
+  .cr-scrubwrap {
+    height: 18px;
+  }
+  .cr-top {
+    padding-block: 4px;
+  }
+  .cr-top .seg button {
+    min-height: 28px;
+    height: 28px;
+  }
+  .cr-tools .icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+/* full screen: the controls fade to the bottom edge, the board is the whole picture */
+.cr.is-full .cr-dock {
+  opacity: 0.9;
+}
+@supports (height: 100dvh) {
+  .cr.is-full {
+    height: 100dvh;
+  }
+}
+
+/* short windows: the caption sits just above the thin control row, never on top of it */
+@media (max-height: 520px) {
+  .cr-cap {
+    bottom: calc(max(6px, env(safe-area-inset-bottom)) + 46px);
+    max-width: min(640px, 72%);
+    padding: 5px 12px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .panel-on .cr-cap {
+    bottom: calc(max(6px, env(safe-area-inset-bottom)) + 46px);
+  }
+}
+
+/* ---------- lecture only: nothing but the room, the captions and one small lock ---------- */
+.cr.is-locked > :not(.cr-stage):not(.cr-cap):not(.cr-ad):not(.cr-shield):not(.cr-unlock):not(.cr-load) {
+  display: none !important;
+}
+.cr.is-locked .cr-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  order: 0;
+}
+.cr.is-locked .cr-cap {
+  bottom: max(18px, env(safe-area-inset-bottom));
+}
+.cr-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  touch-action: none;
+  cursor: default;
+}
+.cr-unlock {
+  position: absolute;
+  right: max(14px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(10, 10, 16, 0.55);
+  color: #f5f5f8;
+  opacity: 0.45;
+  backdrop-filter: blur(8px);
+  transition: opacity 0.2s;
+}
+.cr-unlock:hover,
+.cr-unlock:focus-visible {
+  opacity: 1;
+}
+
+.cr.is-locked .cr-zoom {
+  display: none !important;
+}
+
+/* ---------- smaller controls in the classroom, so the screen is the thing you see ---------- */
+.cr-top {
+  gap: 6px;
+  padding: 8px 12px 4px;
+}
+.cr-top .btn.sm,
+.cr-top .btn.xs {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+.cr-top .btn.sm svg {
+  width: 14px;
+  height: 14px;
+}
+.cr-top .icon-btn,
+.cr-tools .icon-btn {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 10px;
+}
+.cr-top .icon-btn svg,
+.cr-tools .icon-btn svg {
+  width: 15px;
+  height: 15px;
+}
+.cr-top .seg {
+  padding: 2px;
+}
+.cr-top .seg button {
+  height: 26px;
+  padding: 0 11px;
+  font-size: 12px;
+}
+.cr-title .label {
+  font-size: 10px;
+}
+.cr-title b {
+  font-size: 13px;
+}
+.cr-zoom {
+  gap: 2px;
+  padding: 4px;
+  border-radius: 12px;
+}
+.cr-zoom button,
+.cr-zoom .icon-btn {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+}
+.cr-zoom svg {
+  width: 14px;
+  height: 14px;
+}
+.cr-unlock {
+  width: 32px;
+  height: 32px;
+}
+@media (max-width: 620px) {
+  .cr-top .seg button {
+    min-height: 28px;
+    height: 28px;
+    font-size: 11.5px;
+  }
+}

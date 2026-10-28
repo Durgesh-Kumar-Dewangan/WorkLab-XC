@@ -1,0 +1,339 @@
+/* ---------- the live map: takes the selected theme's colours ---------- */
+.lm-icon {
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+}
+.lm {
+  --lm-fg: var(--fg);
+  --lm-dim: var(--fg3);
+  --lm-on: #0e9f55;
+  --lm-off: #e03144;
+  --lm-pay: #7c3aed;
+  --lm-ctl: var(--panel);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  min-height: calc(100vh - 60px);
+  color: var(--lm-fg);
+  background:
+    radial-gradient(60% 70% at 38% 50%, color-mix(in srgb, var(--blue) 16%, transparent), transparent 70%),
+    var(--bg);
+}
+.lm:fullscreen {
+  min-height: 100vh;
+}
+.lm-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  color: var(--lm-dim);
+}
+.lm-spin {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #22e07a;
+  border-radius: 50%;
+  animation: lm-turn 0.8s linear infinite;
+}
+@keyframes lm-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.lm-stage {
+  position: relative;
+  min-height: 460px;
+}
+.lm-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+.lm-canvas:active {
+  cursor: grabbing;
+}
+.lm-legend {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+  pointer-events: none;
+}
+.lm-legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+.lm-live {
+  position: absolute;
+  top: 46px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.lm-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22e07a;
+  box-shadow: 0 0 0 0 rgba(34, 224, 122, 0.6);
+  animation: lm-ping 1.6s infinite;
+}
+@keyframes lm-ping {
+  to {
+    box-shadow: 0 0 0 10px rgba(34, 224, 122, 0);
+  }
+}
+.lm-feed {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 70px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--lm-dim);
+  animation: lm-fade 0.6s ease both;
+  pointer-events: none;
+}
+@keyframes lm-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.lm-ctl {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.lm-ctl button,
+.lm-ctl select {
+  height: 38px;
+  min-width: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(34, 30, 70, 0.85);
+  color: var(--lm-fg);
+  font-size: 15px;
+}
+.lm-ctl button.dim {
+  opacity: 0.5;
+}
+.lm-zoom {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  gap: 1px;
+}
+.lm-zoom button {
+  border-radius: 0;
+  font-size: 20px;
+  line-height: 1;
+}
+.lm-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 22px 28px;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px);
+}
+.lm-side h2 {
+  margin: 10px 0 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--lm-fg);
+}
+.lm-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 14px;
+}
+.lm-big span {
+  display: block;
+  font-size: 13px;
+  color: var(--lm-dim);
+}
+.lm-big b {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.lm-top,
+.lm-plans {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lm-top li {
+  display: grid;
+  gap: 5px;
+  font-size: 13.5px;
+}
+.lm-top li > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.lm-top small {
+  color: var(--lm-dim);
+}
+.lm-top i,
+.lm-split i {
+  display: block;
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(255, 77, 94, 0.55);
+  overflow: hidden;
+}
+.lm-top i u,
+.lm-split i u {
+  display: block;
+  height: 100%;
+  background: #22e07a;
+  text-decoration: none;
+}
+.lm-split {
+  display: grid;
+  gap: 12px;
+}
+.lm-split > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 10px;
+  font-size: 13.5px;
+}
+.lm-split i {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.12);
+}
+.lm-plans li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
+.lm-none,
+.lm-note {
+  color: var(--lm-dim);
+  font-size: 12.5px;
+}
+.lm-note {
+  margin: 4px 0 0;
+}
+@media (max-width: 900px) {
+  .lm {
+    grid-template-columns: 1fr;
+  }
+  .lm-stage {
+    min-height: 0;
+    aspect-ratio: 1;
+  }
+  .lm-side {
+    max-height: none;
+    padding: 16px 16px 90px;
+  }
+  .lm-big b {
+    font-size: 24px;
+  }
+  .lm-feed {
+    bottom: 62px;
+    font-size: 12px;
+  }
+  .lm-ctl button,
+  .lm-ctl select {
+    height: 34px;
+    min-width: 34px;
+    font-size: 13px;
+  }
+}
+
+.lm-legend i.lm-pin {
+  width: 11px;
+  height: 11px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 1.5px solid #fff;
+}
+.lm .lm-ctl select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 28px;
+  background: rgba(34, 30, 70, 0.9)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23888888' stroke-width='1.6'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  color: #eceaff;
+  color-scheme: dark;
+}
+.lm .lm-ctl select option {
+  background: #1c1a3e;
+  color: #eceaff;
+}
+
+.lm[data-dark='1'] {
+  --lm-on: #22e07a;
+  --lm-off: #ff4d5e;
+  --lm-pay: #c06eff;
+}
+.lm .lm-ctl button,
+.lm .lm-ctl select {
+  background-color: var(--lm-ctl);
+  border: 1px solid var(--line2);
+  color: var(--lm-fg);
+}
+.lm .lm-ctl select option {
+  background: var(--panel);
+  color: var(--lm-fg);
+}
+.lm-split i {
+  background: color-mix(in srgb, var(--fg) 14%, transparent);
+}
+.lm-top i {
+  background: color-mix(in srgb, var(--lm-off) 55%, transparent);
+}
+.lm-top i u,
+.lm-split i u,
+.lm-dot {
+  background: var(--lm-on);
+}
+
+/* layering: the map lives in its own stacking box, below the top bar, the menus and the cookie notice */
+.lm {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+.lm-stage {
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+.lm-canvas {
+  z-index: 0;
+}
+.lm-legend,
+.lm-live,
+.lm-feed,
+.lm-ctl {
+  z-index: 2;
+}

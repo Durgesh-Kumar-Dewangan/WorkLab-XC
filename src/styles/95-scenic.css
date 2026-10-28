@@ -1,0 +1,438 @@
+/* The Scenic theme (Settings → Appearance): a dusk mountain landscape behind frosted dark glass, with orange as the accent.
+   It sits beside light and dark: it reuses the dark rules and changes the colours, the backdrop and the surfaces. */
+:root[data-theme='scenic'] {
+  --bg: rgba(8, 14, 27, 0.5);
+  --bg2: rgba(11, 19, 36, 0.78);
+  --panel: rgba(14, 23, 42, 0.74);
+  --panel2: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.1);
+  --line2: rgba(255, 255, 255, 0.2);
+  --fg: #fbf6ea;
+  --fg2: #ddd6c6;
+  --fg3: #b3ad9f;
+  --blue: #ff9f1c;
+  --violet: #ffb347;
+  --magenta: #ff7a3d;
+  --green: #7be3a0;
+  --green-ink: #7be3a0;
+  --amber: #ffc861;
+  --red: #ff8a8a;
+  --gray-bar: rgba(255, 255, 255, 0.14);
+  --era: rgba(255, 159, 28, 0.16);
+  --era-fg: #ffe3b8;
+  --era-dim: #e6b673;
+  --sheet: rgba(16, 26, 48, 0.82);
+  --sheet-fg: #fbf6ea;
+  --sheet-dim: #cfc7b5;
+  --sheet-line: rgba(255, 255, 255, 0.16);
+  --sheet-panel: rgba(255, 255, 255, 0.07);
+  --btn-bg: #ff9f1c;
+  --btn-fg: #1b1004;
+  --dot: #ffd9a0;
+  --ga: 255 159 28;
+  --gb: 255 200 120;
+  --gc: 70 110 190;
+  --glow-alpha: 0.4;
+  --shadow: 0 24px 60px rgba(4, 8, 20, 0.5);
+  color-scheme: dark;
+}
+
+:root[data-theme='scenic'] body {
+  background:
+    linear-gradient(180deg, rgba(8, 14, 27, 0.78) 0%, rgba(8, 14, 27, 0.5) 45%, rgba(8, 14, 27, 0.72) 100%)
+      fixed,
+    #0b1424 url('/themes/scenic.svg') center / cover fixed no-repeat;
+} /* the big containers show the landscape through them */
+:root[data-theme='scenic'] .site,
+:root[data-theme='scenic'] .landing,
+:root[data-theme='scenic'] .app,
+:root[data-theme='scenic'] .shell {
+  background: transparent;
+} /* frosted glass on cards,
+menus,
+the sidebar and the content column */
+:root[data-theme='scenic'] .card,
+:root[data-skin='on'][data-theme='scenic'] .dr-card,
+:root[data-skin='on'][data-theme='scenic'] .mini-steps li,
+:root[data-skin='on'][data-theme='scenic'] .mini-explore,
+:root[data-skin='on'][data-theme='scenic'] .cr-introcard,
+:root[data-skin='on'][data-theme='scenic'] .cookie-bar,
+:root[data-skin='on'][data-theme='scenic'] .modal,
+:root[data-skin='on'][data-theme='scenic'] .menu,
+:root[data-skin='on'][data-theme='scenic'] .acct-menu,
+:root[data-skin='on'][data-theme='scenic'] .nav-pill {
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .card,
+:root[data-skin='on'][data-theme='scenic'] .mini-steps li,
+:root[data-skin='on'][data-theme='scenic'] .dr-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)), var(--panel);
+  box-shadow:
+    0 18px 44px rgba(3, 8, 20, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    transform 0.18s,
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+
+:root[data-skin='on'][data-theme='scenic'] .card:hover {
+  border-color: rgba(255, 159, 28, 0.55);
+  box-shadow:
+    0 22px 54px rgba(3, 8, 20, 0.45),
+    0 0 0 1px rgba(255, 159, 28, 0.25);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .app .side {
+  background: rgba(8, 14, 28, 0.62);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  backdrop-filter: blur(20px) saturate(1.2);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .app .side a.nl[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(255, 159, 28, 0.28), rgba(255, 159, 28, 0.08));
+  color: #ffe3b8;
+  box-shadow: inset 3px 0 0 #ff9f1c;
+}
+
+:root[data-skin='on'][data-theme='scenic'] .app-main {
+  background: rgba(8, 14, 28, 0.38);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .topbar {
+  background: rgba(8, 14, 28, 0.5);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .btn {
+  border-radius: 999px;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--fg);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .btn.solid {
+  background: linear-gradient(180deg, #ffb347, #ff9a14);
+  color: #1b1004;
+  border-color: transparent;
+  font-weight: 700;
+  box-shadow:
+    0 8px 22px rgba(255, 154, 20, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+:root[data-skin='on'][data-theme='scenic'] .btn.solid:hover {
+  background: linear-gradient(180deg, #ffc266, #ffa42e);
+  transform: translateY(-1px);
+}
+
+:root[data-theme='scenic'] h1,
+:root[data-theme='scenic'] .mini-title {
+  text-shadow: 0 2px 22px rgba(4, 10, 24, 0.55);
+}
+
+:root[data-theme='scenic'] .label,
+:root[data-theme='scenic'] .mini-kicker {
+  color: #ffd9a0;
+}
+
+:root[data-skin='on'][data-theme='scenic'] input,
+:root[data-skin='on'][data-theme='scenic'] select,
+:root[data-skin='on'][data-theme='scenic'] textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+}
+
+:root[data-skin='on'][data-theme='scenic'] input:focus,
+:root[data-skin='on'][data-theme='scenic'] select:focus,
+:root[data-skin='on'][data-theme='scenic'] textarea:focus {
+  border-color: #ff9f1c;
+  box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.25);
+  outline: none;
+}
+
+:root[data-theme='scenic'] ::selection {
+  background: rgba(255, 159, 28, 0.45);
+}
+
+/* Scenic in other lights: a bright white day, a warm dawn and a grey mist. The dusk look above stays the default. */
+:root[data-theme='scenic'][data-tone='light'] {
+  --bg: rgba(255, 255, 255, 0.35);
+  --bg2: rgba(255, 255, 255, 0.8);
+  --panel: rgba(255, 255, 255, 0.8);
+  --panel2: #14202e0f;
+  --line: #14202e1a;
+  --line2: #14202e33;
+  --fg: #14202e;
+  --fg2: #34485c;
+  --fg3: #5e7288;
+  --blue: #e07a10;
+  --violet: #e89a3c;
+  --magenta: #d1602b;
+  --green: #1e9e5a;
+  --green-ink: #1b7a4a;
+  --amber: #c98a1e;
+  --red: #d23f3f;
+  --gray-bar: #14202e24;
+  --era: #e07a1024;
+  --era-fg: #14202e;
+  --era-dim: #34485c;
+  --sheet: rgba(255, 255, 255, 0.8);
+  --sheet-fg: #14202e;
+  --sheet-dim: #5e7288;
+  --sheet-line: #14202e22;
+  --sheet-panel: #14202e0d;
+  --btn-bg: #e07a10;
+  --btn-fg: #ffffff;
+  --dot: #14202e;
+  --shadow: 0 24px 60px rgba(40, 60, 90, 0.18);
+  color-scheme: light;
+}
+:root[data-theme='scenic'][data-tone='light'] body {
+  background:
+    linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0.12) 45%,
+        rgba(255, 255, 255, 0.5) 100%
+      )
+      fixed,
+    #f4f8fd url('/themes/scenic-light.svg') center / cover fixed no-repeat;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .card,
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .mini-steps li,
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .dr-card {
+  border: 1px solid #14202e22;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 14px 36px rgba(40, 60, 90, 0.14);
+}
+
+:root[data-theme='scenic'][data-tone='dawn'] {
+  --bg: rgba(255, 244, 236, 0.35);
+  --bg2: rgba(255, 248, 242, 0.8);
+  --panel: rgba(255, 248, 242, 0.8);
+  --panel2: #2b1a140f;
+  --line: #2b1a141a;
+  --line2: #2b1a1433;
+  --fg: #2b1a14;
+  --fg2: #5a3a2e;
+  --fg3: #8a6455;
+  --blue: #d1561f;
+  --violet: #e8893f;
+  --magenta: #d1602b;
+  --green: #1e9e5a;
+  --green-ink: #1b7a4a;
+  --amber: #c98a1e;
+  --red: #d23f3f;
+  --gray-bar: #2b1a1424;
+  --era: #d1561f24;
+  --era-fg: #2b1a14;
+  --era-dim: #5a3a2e;
+  --sheet: rgba(255, 248, 242, 0.8);
+  --sheet-fg: #2b1a14;
+  --sheet-dim: #8a6455;
+  --sheet-line: #2b1a1422;
+  --sheet-panel: #2b1a140d;
+  --btn-bg: #d1561f;
+  --btn-fg: #ffffff;
+  --dot: #2b1a14;
+  --shadow: 0 24px 60px rgba(40, 60, 90, 0.18);
+  color-scheme: light;
+}
+:root[data-theme='scenic'][data-tone='dawn'] body {
+  background:
+    linear-gradient(
+        180deg,
+        rgba(255, 236, 222, 0.5) 0%,
+        rgba(255, 255, 255, 0.12) 45%,
+        rgba(255, 236, 222, 0.5) 100%
+      )
+      fixed,
+    #ffe9d8 url('/themes/scenic-dawn.svg') center / cover fixed no-repeat;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .card,
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .mini-steps li,
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .dr-card {
+  border: 1px solid #2b1a1422;
+  background: rgba(255, 248, 242, 0.8);
+  box-shadow: 0 14px 36px rgba(40, 60, 90, 0.14);
+}
+
+:root[data-theme='scenic'][data-tone='mist'] {
+  --bg: rgba(240, 244, 248, 0.35);
+  --bg2: rgba(246, 249, 252, 0.8);
+  --panel: rgba(246, 249, 252, 0.8);
+  --panel2: #101a240f;
+  --line: #101a241a;
+  --line2: #101a2433;
+  --fg: #101a24;
+  --fg2: #2f4152;
+  --fg3: #58708a;
+  --blue: #2a6fb3;
+  --violet: #4a8fd0;
+  --magenta: #d1602b;
+  --green: #1e9e5a;
+  --green-ink: #1b7a4a;
+  --amber: #c98a1e;
+  --red: #d23f3f;
+  --gray-bar: #101a2424;
+  --era: #2a6fb324;
+  --era-fg: #101a24;
+  --era-dim: #2f4152;
+  --sheet: rgba(246, 249, 252, 0.8);
+  --sheet-fg: #101a24;
+  --sheet-dim: #58708a;
+  --sheet-line: #101a2422;
+  --sheet-panel: #101a240d;
+  --btn-bg: #2a6fb3;
+  --btn-fg: #ffffff;
+  --dot: #101a24;
+  --shadow: 0 24px 60px rgba(40, 60, 90, 0.18);
+  color-scheme: light;
+}
+:root[data-theme='scenic'][data-tone='mist'] body {
+  background:
+    linear-gradient(
+        180deg,
+        rgba(238, 242, 246, 0.5) 0%,
+        rgba(255, 255, 255, 0.12) 45%,
+        rgba(238, 242, 246, 0.5) 100%
+      )
+      fixed,
+    #e8eef3 url('/themes/scenic-mist.svg') center / cover fixed no-repeat;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .card,
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .mini-steps li,
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .dr-card {
+  border: 1px solid #101a2422;
+  background: rgba(246, 249, 252, 0.8);
+  box-shadow: 0 14px 36px rgba(40, 60, 90, 0.14);
+}
+
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .app .side {
+  background: rgba(255, 255, 255, 0.72);
+  border-right: 1px solid rgba(20, 32, 46, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .app .side a.nl[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(224, 122, 16, 0.2), transparent);
+  color: var(--fg);
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .app-main {
+  background: transparent;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .topbar {
+  background: rgba(255, 255, 255, 0.72);
+  border-bottom-color: rgba(20, 32, 46, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .btn {
+  border-color: rgba(20, 32, 46, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--fg);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='light'] .btn.solid {
+  background: linear-gradient(180deg, var(--violet), var(--blue));
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(120, 90, 40, 0.22);
+}
+:root[data-theme='scenic'][data-tone='light'] h1,
+:root[data-theme='scenic'][data-tone='light'] .mini-title {
+  text-shadow: none;
+}
+:root[data-theme='scenic'][data-tone='light'] .label,
+:root[data-theme='scenic'][data-tone='light'] .mini-kicker {
+  color: #8a5a14;
+}
+
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .app .side {
+  background: rgba(255, 246, 238, 0.72);
+  border-right: 1px solid rgba(43, 26, 20, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .app .side a.nl[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(209, 86, 31, 0.2), transparent);
+  color: var(--fg);
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .app-main {
+  background: transparent;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .topbar {
+  background: rgba(255, 246, 238, 0.72);
+  border-bottom-color: rgba(43, 26, 20, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .btn {
+  border-color: rgba(43, 26, 20, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--fg);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='dawn'] .btn.solid {
+  background: linear-gradient(180deg, var(--violet), var(--blue));
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(120, 90, 40, 0.22);
+}
+:root[data-theme='scenic'][data-tone='dawn'] h1,
+:root[data-theme='scenic'][data-tone='dawn'] .mini-title {
+  text-shadow: none;
+}
+:root[data-theme='scenic'][data-tone='dawn'] .label,
+:root[data-theme='scenic'][data-tone='dawn'] .mini-kicker {
+  color: #8c4a24;
+}
+
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .app .side {
+  background: rgba(244, 247, 250, 0.72);
+  border-right: 1px solid rgba(16, 26, 36, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .app .side a.nl[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(42, 111, 179, 0.2), transparent);
+  color: var(--fg);
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .app-main {
+  background: transparent;
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .topbar {
+  background: rgba(244, 247, 250, 0.72);
+  border-bottom-color: rgba(16, 26, 36, 0.12);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .btn {
+  border-color: rgba(16, 26, 36, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--fg);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+:root[data-skin='on'][data-theme='scenic'][data-tone='mist'] .btn.solid {
+  background: linear-gradient(180deg, var(--violet), var(--blue));
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(120, 90, 40, 0.22);
+}
+:root[data-theme='scenic'][data-tone='mist'] h1,
+:root[data-theme='scenic'][data-tone='mist'] .mini-title {
+  text-shadow: none;
+}
+:root[data-theme='scenic'][data-tone='mist'] .label,
+:root[data-theme='scenic'][data-tone='mist'] .mini-kicker {
+  color: #2a5f94;
+}

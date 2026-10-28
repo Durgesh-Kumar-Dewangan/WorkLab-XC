@@ -1,0 +1,233 @@
+/* The Playful theme (Settings → Appearance): a bright white page, green as the main colour, bold type and chunky buttons that press down.
+   It builds on the light theme's rules (they apply to both) and re-colours them. */
+:root[data-theme='playful'] {
+  --bg: #ffffff;
+  --bg2: #f7f7f7;
+  --panel: #ffffff;
+  --panel2: #f2f2f2;
+  --line: #e5e5e5;
+  --line2: #dcdcdc;
+  --fg: #3c3c3c;
+  --fg2: #5b5b5b;
+  --fg3: #8a8a8a;
+  --blue: #1cb0f6;
+  --violet: #ce82ff;
+  --magenta: #ff86d0;
+  --green: #58cc02;
+  --green-ink: #3f9100;
+  --amber: #ff9600;
+  --red: #ff4b4b;
+  --gray-bar: #e5e5e5;
+  --era: #ddf4ff;
+  --era-fg: #0b5d85;
+  --era-dim: #3b8bb0;
+  --sheet: #58cc02;
+  --sheet-fg: #ffffff;
+  --sheet-dim: #e4f9c9;
+  --sheet-line: #46a302;
+  --sheet-panel: #4fb800;
+  --btn-bg: #58cc02;
+  --btn-fg: #ffffff;
+  --dot: #3c3c3c;
+  --ga: 88 204 2;
+  --gb: 28 176 246;
+  --gc: 255 200 0;
+  --glow-alpha: 0.2;
+  --grain-alpha: 0;
+  --shadow: 0 6px 0 #e5e5e5;
+  color-scheme: light;
+}
+
+:root[data-theme='playful'] body {
+  background: #ffffff;
+  color: var(--fg);
+}
+
+:root[data-theme='playful'] h1,
+:root[data-theme='playful'] h2,
+:root[data-theme='playful'] h3,
+:root[data-theme='playful'] .mini-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+:root[data-theme='playful'] .app,
+:root[data-theme='playful'] .site,
+:root[data-theme='playful'] .landing {
+  --bg: #ffffff;
+  --bg2: #ffffff;
+  --panel: #ffffff;
+  --panel2: #f7f7f7;
+  --line: #e5e5e5;
+  --line2: #dcdcdc;
+  --fg: #3c3c3c;
+  --fg2: #5b5b5b;
+  --fg3: #8a8a8a;
+  --blue: #1cb0f6;
+  --accent: #1cb0f6;
+  --btn-bg: #58cc02;
+  --btn-fg: #ffffff;
+  --shadow: 0 6px 0 #e5e5e5;
+  background: #ffffff;
+}
+
+:root[data-skin='on'][data-theme='playful'] .app .side {
+  background: #ffffff;
+  border-right: 2px solid #e5e5e5;
+}
+
+:root[data-skin='on'][data-theme='playful'] .app .side a.nl {
+  border: 2px solid transparent;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .app .side a.nl[aria-current='page'] {
+  background: #ddf4ff;
+  border-color: #84d8ff;
+  color: #1899d6;
+}
+
+:root[data-skin='on'][data-theme='playful'] .app .app-main {
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+} /* cards: a thick outline and a flat shadow under them */
+:root[data-theme='playful'] .card,
+:root[data-skin='on'][data-theme='playful'] .app .card,
+:root[data-skin='on'][data-theme='playful'] .mini-steps li,
+:root[data-skin='on'][data-theme='playful'] .dr-card,
+:root[data-skin='on'][data-theme='playful'] .app .empty {
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-radius: 20px;
+  box-shadow: 0 4px 0 #e5e5e5;
+}
+
+:root[data-skin='on'][data-theme='playful'] .app .callout {
+  background: #fff4cc;
+  border-color: #ffd900;
+} /* chunky buttons that press down */
+:root[data-theme='playful'] .btn,
+:root[data-skin='on'][data-theme='playful'] .app .btn,
+:root[data-skin='on'][data-theme='playful'] .app .searchbtn,
+:root[data-skin='on'][data-theme='playful'] .app .icon-btn.bordered {
+  background: #ffffff;
+  color: #1cb0f6;
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #e5e5e5;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.08s,
+    box-shadow 0.08s;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn:hover,
+:root[data-skin='on'][data-theme='playful'] .app .btn:hover {
+  background: #f7f7f7;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn:active,
+:root[data-skin='on'][data-theme='playful'] .app .btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #e5e5e5;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn.solid,
+:root[data-skin='on'][data-theme='playful'] .app .btn.solid {
+  background: #58cc02;
+  color: #ffffff;
+  border-color: #58cc02;
+  box-shadow: 0 4px 0 #58a700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn.solid:hover,
+:root[data-skin='on'][data-theme='playful'] .app .btn.solid:hover {
+  background: #61d800;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn.solid:active,
+:root[data-skin='on'][data-theme='playful'] .app .btn.solid:active {
+  box-shadow: 0 0 0 #58a700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .btn.danger,
+:root[data-skin='on'][data-theme='playful'] .app .btn.danger {
+  color: #ff4b4b;
+}
+
+:root[data-skin='on'][data-theme='playful'] .side-upgrade {
+  background: #ffd900;
+  color: #6b4f00;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #e5b800;
+}
+
+:root[data-skin='on'][data-theme='playful'] .side-upgrade small {
+  color: #6b4f00;
+}
+
+:root[data-skin='on'][data-theme='playful'] input,
+:root[data-skin='on'][data-theme='playful'] select,
+:root[data-skin='on'][data-theme='playful'] textarea,
+:root[data-skin='on'][data-theme='playful'] .app .input {
+  background: #f7f7f7;
+  border: 2px solid #e5e5e5;
+  border-radius: 14px;
+}
+
+:root[data-skin='on'][data-theme='playful'] input:focus,
+:root[data-skin='on'][data-theme='playful'] select:focus,
+:root[data-skin='on'][data-theme='playful'] textarea:focus {
+  border-color: #84d8ff;
+  background: #ffffff;
+  outline: none;
+}
+
+:root[data-skin='on'][data-theme='playful'] .site-nav .nav-pill {
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 0 #e5e5e5;
+}
+
+:root[data-skin='on'][data-theme='playful'] .mini-n,
+:root[data-skin='on'][data-theme='playful'] .mini-explore i {
+  background: #58cc02;
+  color: #ffffff;
+}
+
+:root[data-skin='on'][data-theme='playful'] .mini-explore {
+  border-color: #58cc02;
+  background: #f1fbe3;
+  box-shadow: 0 4px 0 #58a700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .mini-facts li::before {
+  color: #58cc02;
+}
+
+:root[data-skin='on'][data-theme='playful'] .dr-prog i {
+  background: #58cc02;
+}
+
+:root[data-skin='on'][data-theme='playful'] .dr-opt {
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #e5e5e5;
+  font-weight: 700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .dr-opt.right {
+  background: #d7ffb8;
+  border-color: #58cc02;
+  box-shadow: 0 4px 0 #58a700;
+}
+
+:root[data-skin='on'][data-theme='playful'] .dr-opt.wrong {
+  background: #ffdfe0;
+  border-color: #ff4b4b;
+  box-shadow: 0 4px 0 #ea2b2b;
+}

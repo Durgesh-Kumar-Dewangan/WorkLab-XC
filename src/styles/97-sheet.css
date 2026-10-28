@@ -1,0 +1,54 @@
+/* Page headings with an accent word, mono micro-labels, and a rounded content column in the workspace.
+   Dark mode stays dark everywhere: no light "sheet" is drawn inside it. */
+.ph h1,
+.pp-head .h1 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.ph h1 em,
+.ph h1 mark,
+.pp-head .h1 em,
+.pp-head .h1 mark {
+  color: var(--blue);
+  font-style: normal;
+  background: none;
+}
+.label {
+  font-family: var(--mono, monospace);
+  letter-spacing: 0.12em;
+}
+
+/* dark workspace: a slightly raised content column against the darker side bar */
+:root[data-theme='dark'] .app-main,
+:root[data-theme='worldlab'] .app-main {
+  background: var(--bg);
+}
+@media (min-width: 900px) {
+  :root[data-theme='dark'] .app,
+  :root:not([data-theme]) .app {
+    background: #070809;
+  }
+  :root[data-theme='dark'] .app .app-main {
+    margin: 8px 8px 8px 0;
+    min-height: calc(100vh - 16px);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: clip;
+    background: var(--bg);
+  }
+}
+@media (min-width: 900px) and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .app .app-main {
+    margin: 8px 8px 8px 0;
+    min-height: calc(100vh - 16px);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: clip;
+    background: var(--bg);
+  }
+}
+
+/* the public content pages keep the page colour in every theme */
+.page-pub {
+  background: transparent;
+}

@@ -1,0 +1,309 @@
+/* Three more themes (Settings → Appearance), each inspired by a look rather than copying it:
+   Wondering-style (cream paper, serif headings, sky-blue), Instagram-style (white, thin lines, a sunset gradient),
+   World Labs-style (quiet near-black, warm white, serif display).
+   Wondering and Instagram build on the light theme's rules; World Labs builds on the dark ones. */
+
+/* ============================== Wondering-style ============================== */
+:root[data-theme='wondering'],
+:root[data-theme='wondering'] .app,
+:root[data-theme='wondering'] .site,
+:root[data-theme='wondering'] .landing {
+  --bg: #fffcf0;
+  --bg2: #fff8e4;
+  --panel: #ffffff;
+  --panel2: #fbf4de;
+  --line: #f0e7cc;
+  --line2: #e2d6b3;
+  --fg: #2a2118;
+  --fg2: #5e5444;
+  --fg3: #86796a;
+  --blue: #1b78a8;
+  --accent: #1b78a8;
+  --amber: #8a5000;
+  --btn-bg: #6cc4f5;
+  --btn-fg: #0c3c57;
+  --gray-bar: #efe6cb;
+  --shadow: 0 10px 30px rgba(120, 90, 30, 0.12);
+  color-scheme: light;
+}
+
+:root[data-theme='wondering'] body,
+:root[data-theme='wondering'] .app,
+:root[data-theme='wondering'] .site {
+  background-color: var(--bg);
+  background-image: radial-gradient(#eadfbd 1.1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+
+:root[data-theme='wondering'] h1,
+:root[data-theme='wondering'] h2,
+:root[data-theme='wondering'] .mini-title,
+:root[data-theme='wondering'] .st-front {
+  font-family: ui-serif, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+:root[data-skin='on'][data-theme='wondering'] .app .side,
+:root[data-skin='on'][data-theme='wondering'] .app .app-main {
+  background: rgba(255, 252, 240, 0.86);
+}
+
+:root[data-skin='on'][data-theme='wondering'] .card,
+:root[data-skin='on'][data-theme='wondering'] .app .card,
+:root[data-skin='on'][data-theme='wondering'] .mini-steps li,
+:root[data-skin='on'][data-theme='wondering'] .dr-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 8px 26px rgba(120, 90, 30, 0.1);
+}
+
+:root[data-skin='on'][data-theme='wondering'] .btn,
+:root[data-skin='on'][data-theme='wondering'] .app .btn {
+  background: #fff;
+  border: 1px solid var(--line2);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='wondering'] .btn.solid,
+:root[data-skin='on'][data-theme='wondering'] .app .btn.solid {
+  background: #6cc4f5;
+  border-color: #6cc4f5;
+  color: #0c3c57;
+  font-weight: 650;
+}
+
+:root[data-skin='on'][data-theme='wondering'] .btn.solid:hover,
+:root[data-skin='on'][data-theme='wondering'] .app .btn.solid:hover {
+  background: #86d0f8;
+}
+
+:root[data-skin='on'][data-theme='wondering'] .app .side a.nl[aria-current='page'] {
+  background: #e3f4fd;
+  color: #0e5b82;
+}
+
+:root[data-skin='on'][data-theme='wondering'] .side-upgrade {
+  background: #ffe2c2;
+  color: #8a4b0f;
+} /* ============================== Instagram-style ============================== */
+:root[data-theme='instagram'],
+:root[data-theme='instagram'] .app,
+:root[data-theme='instagram'] .site,
+:root[data-theme='instagram'] .landing {
+  --bg: #ffffff;
+  --bg2: #fafafa;
+  --panel: #ffffff;
+  --panel2: #f5f5f5;
+  --line: #efefef;
+  --line2: #dbdbdb;
+  --fg: #262626;
+  --fg2: #4f4f4f;
+  --fg3: #737373;
+  --blue: #0095f6;
+  --accent: #0095f6;
+  --btn-bg: #0095f6;
+  --btn-fg: #ffffff;
+  --gray-bar: #ebebeb;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  color-scheme: light;
+}
+
+:root[data-theme='instagram'] body,
+:root[data-theme='instagram'] .app,
+:root[data-theme='instagram'] .site {
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .app .side {
+  background: #ffffff;
+  border-right: 1px solid #dbdbdb;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .app .app-main {
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .app .side a.nl {
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .app .side a.nl[aria-current='page'] {
+  background: transparent;
+  font-weight: 700;
+  color: #262626;
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .app .side a.nl[aria-current='page'] svg {
+  color: #dc2743;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .card,
+:root[data-skin='on'][data-theme='instagram'] .app .card,
+:root[data-skin='on'][data-theme='instagram'] .mini-steps li,
+:root[data-skin='on'][data-theme='instagram'] .dr-card {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .btn,
+:root[data-skin='on'][data-theme='instagram'] .app .btn,
+:root[data-skin='on'][data-theme='instagram'] .app .searchbtn {
+  background: #efefef;
+  color: #262626;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .btn:hover,
+:root[data-skin='on'][data-theme='instagram'] .app .btn:hover {
+  background: #dbdbdb;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .btn.solid,
+:root[data-skin='on'][data-theme='instagram'] .app .btn.solid {
+  background: #0095f6;
+  color: #fff;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .btn.solid:hover,
+:root[data-skin='on'][data-theme='instagram'] .app .btn.solid:hover {
+  background: #1877f2;
+}
+
+:root[data-skin='on'][data-theme='instagram'] input,
+:root[data-skin='on'][data-theme='instagram'] select,
+:root[data-skin='on'][data-theme='instagram'] textarea,
+:root[data-skin='on'][data-theme='instagram'] .app .input {
+  background: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+} /* the gradient from the logo ring,
+used where something is "live": progress and the brand */
+:root[data-theme='instagram'] .st-bar i,
+:root[data-skin='on'][data-theme='instagram'] .dr-prog i,
+:root[data-skin='on'][data-theme='instagram'] .bar i {
+  background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+:root[data-skin='on'][data-theme='instagram'] .nav-brand span,
+:root[data-skin='on'][data-theme='instagram'] .mini-title em,
+:root[data-skin='on'][data-theme='instagram'] .ph h1 em {
+  background: linear-gradient(90deg, #f09433, #dc2743, #bc1888);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .side-upgrade {
+  background: linear-gradient(135deg, #f09433, #dc2743 55%, #bc1888);
+  color: #fff;
+}
+
+:root[data-skin='on'][data-theme='instagram'] .side-upgrade small {
+  color: rgba(255, 255, 255, 0.85);
+} /* ============================== World Labs-style ============================== */
+:root[data-theme='worldlab'] {
+  --bg: #0a0a0b;
+  --bg2: #0e0e10;
+  --panel: #121214;
+  --panel2: #19191c;
+  --line: #232326;
+  --line2: #343439;
+  --fg: #f4f1ea;
+  --fg2: #bdb8ad;
+  --fg3: #8b867b;
+  --blue: #d8c9a8;
+  --violet: #b7a98c;
+  --magenta: #c9a5a0;
+  --green: #9ad1a8;
+  --green-ink: #9ad1a8;
+  --amber: #e3c07a;
+  --red: #e58b84;
+  --gray-bar: #2b2b2f;
+  --era: #1b1a16;
+  --era-fg: #f4f1ea;
+  --era-dim: #a89f8a;
+  --btn-bg: #f4f1ea;
+  --btn-fg: #0a0a0b;
+  --dot: #f4f1ea;
+  --ga: 216 201 168;
+  --gb: 244 241 234;
+  --gc: 120 110 90;
+  --glow-alpha: 0.3;
+  --grain-alpha: 0.05;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+:root[data-theme='worldlab'] body {
+  background: radial-gradient(90% 55% at 50% -12%, rgba(244, 241, 234, 0.09), transparent 60%), #0a0a0b;
+}
+
+:root[data-theme='worldlab'] h1,
+:root[data-theme='worldlab'] h2,
+:root[data-theme='worldlab'] .mini-title,
+:root[data-theme='worldlab'] .st-front {
+  font-family: ui-serif, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .card,
+:root[data-skin='on'][data-theme='worldlab'] .mini-steps li,
+:root[data-skin='on'][data-theme='worldlab'] .dr-card {
+  border: 1px solid #28282c;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)), var(--panel);
+  box-shadow: none;
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .btn {
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #3a3a40;
+  color: var(--fg);
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .btn:hover {
+  background: rgba(244, 241, 234, 0.08);
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .btn.solid {
+  background: #f4f1ea;
+  color: #0a0a0b;
+  border-color: #f4f1ea;
+  font-weight: 600;
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .btn.solid:hover {
+  background: #ffffff;
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .app .side {
+  background: #0c0c0d;
+  border-right: 1px solid #1e1e21;
+}
+
+:root[data-skin='on'][data-theme='worldlab'] .app .side a.nl[aria-current='page'] {
+  background: rgba(244, 241, 234, 0.1);
+  color: #f4f1ea;
+}
+
+:root[data-theme='worldlab'] .label,
+:root[data-theme='worldlab'] .mini-kicker {
+  letter-spacing: 0.16em;
+  color: #a89f8a;
+}

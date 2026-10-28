@@ -1,0 +1,129 @@
+/* WorkLab XC design tokens.
+   Layout concept: dark-first. General Learning's black canvas and halftone imagery, LinkLane's bold headline and
+   rising rounded sheet, Memorable's grain-gradient hero, mono micro-labels and layered 3D.
+   Dark values live on bare :root; the light palette is emitted by build.py under
+   (prefers-color-scheme: light) guarded by :not([data-theme="dark"]) and under [data-theme="light"]. */
+:root {
+  --bg: #0a0c10;
+  --bg2: #0e1117;
+  --panel: #131720;
+  --panel2: #1a1f2b;
+  --line: #1f2430;
+  --line2: #2e3544;
+  --fg: #f2f4f8;
+  --fg2: #bac1ce;
+  --fg3: #8993a6;
+  --blue: #4d8dff;
+  --violet: #8b6cff;
+  --magenta: #e07bff;
+  --green: #4fe08a;
+  --green-ink: #4fe08a;
+  --amber: #ffc05a;
+  --red: #ff7a86;
+  --gray-bar: #2a303d;
+  --era: #0b2a52;
+  --era-fg: #d6e5fb;
+  --era-dim: #86a3cc;
+  --sheet: #f4f5f9;
+  --sheet-fg: #0b0b12;
+  --sheet-dim: #5d5e70;
+  --sheet-line: #dfe0ea;
+  --sheet-panel: #ffffff;
+  --btn-bg: #f2f4f8;
+  --btn-fg: #000000;
+  --dot: #ffffff;
+  --ga: 124 77 255;
+  --gb: 212 107 255;
+  --gc: 47 123 255;
+  --glow-alpha: 0.62;
+  --grain-alpha: 0.07;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  --font:
+    'DM Sans Variable', 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --mono:
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --r-s: 8px;
+  --r-m: 14px;
+  --r-l: 22px;
+  --r-xl: 36px;
+  --gutter: max(16px, 4vw);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']):not([data-theme='scenic']):not([data-theme='worldlab']) {
+    --bg: #fbf8f1;
+    --bg2: #f3eee3;
+    --panel: #fffef9;
+    --panel2: #f0eadd;
+    --line: #e7dfcd;
+    --line2: #d6ccb4;
+    --fg: #221c17;
+    --fg2: #51473e;
+    --fg3: #756a5d;
+    --blue: #2a78b8;
+    --violet: #5a47f0;
+    --magenta: #e08a4a;
+    --green: #2fd16a;
+    --green-ink: #0a7a3f;
+    --amber: #8a5000;
+    --red: #c0243a;
+    --gray-bar: #e2dac6;
+    --era: #dde8ff;
+    --era-fg: #12286e;
+    --era-dim: #4a62a3;
+    --sheet: #2b1f1b;
+    --sheet-fg: #fff7ea;
+    --sheet-dim: #cdbfae;
+    --sheet-line: #46352e;
+    --sheet-panel: #382a25;
+    --btn-bg: #b9e1f6;
+    --btn-fg: #25688f;
+    --dot: #0b0b12;
+    --ga: 240 150 80;
+    --gb: 255 190 120;
+    --gc: 80 160 220;
+    --glow-alpha: 0.5;
+    --grain-alpha: 0.05;
+    --shadow: 0 18px 50px rgba(86, 64, 30, 0.14);
+    color-scheme: light;
+  }
+}
+:root:is([data-theme='light'], [data-theme='playful'], [data-theme='wondering'], [data-theme='instagram'], [data-theme='brilliant'], [data-theme='windows'], [data-theme='macos']) {
+  --bg: #fbf8f1;
+  --bg2: #f3eee3;
+  --panel: #fffef9;
+  --panel2: #f0eadd;
+  --line: #e7dfcd;
+  --line2: #d6ccb4;
+  --fg: #221c17;
+  --fg2: #51473e;
+  --fg3: #756a5d;
+  --blue: #2a78b8;
+  --violet: #5a47f0;
+  --magenta: #e08a4a;
+  --green: #2fd16a;
+  --green-ink: #0a7a3f;
+  --amber: #8a5000;
+  --red: #c0243a;
+  --gray-bar: #e2dac6;
+  --era: #dde8ff;
+  --era-fg: #12286e;
+  --era-dim: #4a62a3;
+  --sheet: #2b1f1b;
+  --sheet-fg: #fff7ea;
+  --sheet-dim: #cdbfae;
+  --sheet-line: #46352e;
+  --sheet-panel: #382a25;
+  --btn-bg: #b9e1f6;
+  --btn-fg: #25688f;
+  --dot: #0b0b12;
+  --ga: 240 150 80;
+  --gb: 255 190 120;
+  --gc: 80 160 220;
+  --glow-alpha: 0.5;
+  --grain-alpha: 0.05;
+  --shadow: 0 18px 50px rgba(86, 64, 30, 0.14);
+  color-scheme: light;
+}

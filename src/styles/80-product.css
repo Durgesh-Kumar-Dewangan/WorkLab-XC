@@ -1,0 +1,45 @@
+/* Learning session, admin table, trust pages, cookie notice. Uses the existing design tokens only. */
+.learn-grid { display: grid; gap: 16px; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+.learn-side { display: grid; gap: 16px; align-content: start; }
+.learn-stage { display: grid; gap: 12px; }
+.learn-teacher { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.learn-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.learn-slide { min-height: 240px; }
+.learn-slide ul { padding-left: 20px; display: grid; gap: 8px; margin: 12px 0; font-size: 17px; line-height: 1.5; max-width: 62ch; }
+.learn-formula { padding: 10px 12px; border: 1px solid var(--line2); border-radius: 8px; display: inline-block; }
+.learn-caption { color: var(--fg2); font-size: 14.5px; line-height: 1.6; max-width: 66ch; border-left: 2px solid var(--line2); padding-left: 12px; }
+.learn-q { border: 0; padding: 0; margin: 14px 0; display: grid; gap: 6px; min-width: 0; }
+.learn-q legend { font-weight: 500; margin-bottom: 6px; }
+.learn-opt { justify-content: flex-start; text-align: left; height: auto; min-height: 44px; padding-block: 8px; white-space: normal; }
+.learn-chosen { margin: 0 0 6px; padding-left: 22px; }
+.learn-topics { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 4px; }
+.learn-topics li { display: grid; grid-template-columns: minmax(0, 1fr) 90px 44px; gap: 10px; align-items: center; min-height: 44px; }
+.learn-topics a { overflow-wrap: anywhere; }
+.learn-bar { height: 8px; border-radius: 99px; background: var(--line2); overflow: hidden; display: block; }
+.learn-bar i { display: block; height: 100%; background: var(--blue); }
+.learn-addons { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.learn-addon { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 6px; align-content: start; }
+.learn-msgs { display: grid; gap: 8px; max-height: 360px; overflow: auto; padding: 8px 0; }
+.learn-msg { margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--bg2); max-width: 70ch; }
+.learn-msg.user { justify-self: end; border: 1px solid var(--line2); }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; margin-block: 12px; }
+.tbl { border-collapse: collapse; font-size: 13.5px; }
+.tbl th, .tbl td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tbl th { font-weight: 500; color: var(--fg2); white-space: nowrap; position: sticky; top: 0; background: var(--bg2); }
+.cookie-bar { position: fixed; inset: auto 12px 12px 12px; z-index: 60; max-width: 720px; margin-inline: auto; padding: 14px 16px; border: 1px solid var(--line2); border-radius: 12px; background: var(--bg2); display: grid; gap: 10px; box-shadow: 0 10px 40px rgb(0 0 0 / 0.35); }
+.offline-bar { position: sticky; top: 0; z-index: 70; padding: 8px 16px; text-align: center; background: var(--bg2); border-bottom: 1px solid var(--line2); font-size: 14px; }
+.legal section + section { margin-top: 24px; }
+.legal p, .legal li { max-width: 70ch; line-height: 1.65; }
+.legal table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.legal th, .legal td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.crumbs { font-size: 13.5px; margin-bottom: 12px; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; color: var(--fg3); }
+.crumbs li + li::before { content: '/'; margin-right: 6px; }
+.feat-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+@media (max-width: 900px) { .learn-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) {
+  .learn-topics li { grid-template-columns: minmax(0, 1fr) 60px 40px; }
+  .learn-controls .select { max-width: 90px; }
+  .learn-slide ul { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .learn-bar i, .cookie-bar { transition: none; } }

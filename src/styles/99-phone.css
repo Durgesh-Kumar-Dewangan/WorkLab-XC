@@ -1,0 +1,319 @@
+/* ---------- phones: everything a size smaller and tighter, and nothing wider than the screen ---------- */
+@media (max-width: 640px) {
+  html {
+    font-size: 14.5px;
+  }
+  :root {
+    --gutter: 14px;
+  }
+  .page {
+    padding: 16px var(--gutter) 84px;
+    gap: 16px;
+  }
+  .page > *,
+  .g2 > *,
+  .g3 > *,
+  .g4 > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ph {
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .ph h1 {
+    font-size: 24px;
+    letter-spacing: -0.03em;
+  }
+  .ph .sub {
+    margin-top: 4px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .ph .acts {
+    gap: 6px;
+  }
+  .card {
+    padding: 14px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+  .card h2,
+  .card h3 {
+    font-size: 15px;
+  }
+  .card .hd {
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+  .label {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+  .btn {
+    font-size: 13px;
+  }
+  .btn.lg {
+    height: 42px;
+    padding-inline: 16px;
+  }
+  .small {
+    font-size: 12.5px;
+  }
+
+  /* usage and limits */
+  .usage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .usage-row {
+    gap: 4px;
+    font-size: 12.5px;
+  }
+  .usage-row .row {
+    gap: 8px;
+  }
+  .usage-row .row > span:first-child {
+    min-width: 0;
+  }
+  .usage-row .num {
+    flex: none;
+    font-size: 11.5px;
+    text-align: right;
+  }
+
+  /* course cards: a thin strip of art instead of a block, and a smaller body */
+  .course-card {
+    border-radius: 18px;
+  }
+  .course-card .art {
+    height: 44px;
+  }
+  .course-card .bd {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+  .course-card h3 {
+    font-size: 16px;
+  }
+  .course-card .chip {
+    height: 22px;
+    padding: 0 8px;
+    font-size: 10.5px;
+  }
+
+  .hero-card .art {
+    height: 70px;
+  }
+  .hero-card .txt {
+    padding: 14px;
+    gap: 8px;
+  }
+  .hero-card .txt h2 {
+    font-size: 22px;
+  }
+
+  /* grids become one slim column, lists a little closer */
+  .g2,
+  .g3,
+  .g4 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .tabs button {
+    height: 36px;
+    padding: 0 11px;
+    font-size: 13px;
+  }
+  .table th,
+  .table td {
+    padding: 8px 8px;
+    font-size: 12.5px;
+  }
+  .pl-chip {
+    padding: 4px 9px;
+    font-size: 12px;
+  }
+  .pl-big .pl-chip {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  .wc-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .wc-title {
+    font-size: 21px;
+  }
+  .wc-lead {
+    font-size: 15.5px;
+  }
+  .pl-ring {
+    width: 76px;
+    height: 76px;
+  }
+  .pl-ring b {
+    font-size: 19px;
+  }
+  .ug-canvas {
+    max-height: 340px;
+  }
+}
+@media (max-width: 380px) {
+  html {
+    font-size: 14px;
+  }
+  .ph h1 {
+    font-size: 22px;
+  }
+}
+
+/* the footer's small print wraps as tidy chips instead of being cut off at the edge */
+@media (max-width: 640px) {
+  .foot-copy {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 0 20px;
+  }
+  .foot-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    max-width: 100%;
+  }
+  .foot-legal a,
+  .foot-legal button {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .foot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+  }
+  .foot-grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* wide things fit the screen instead of being cut: the plan comparison table and the learning path */
+@media (max-width: 640px) {
+  .cmp {
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 12px;
+  }
+  .cmp th,
+  .cmp td {
+    padding: 8px 6px;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+  }
+  .cmp thead th {
+    font-size: 9.5px;
+    letter-spacing: 0.02em;
+  }
+  .cmp th:first-child,
+  .cmp td:first-child {
+    width: 34%;
+  }
+  .cmp-wrap {
+    border-radius: 14px;
+  }
+  .lp {
+    overflow-x: clip;
+  }
+  .lp-step {
+    width: min(88%, 260px);
+    transform: translateX(clamp(-9cqw, var(--x, 0), 9cqw));
+  }
+}
+
+/* switches with several choices fit the width, wrapping onto a second line when they must */
+@media (max-width: 640px) {
+  .seg {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    border-radius: 18px;
+  }
+  .seg button {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  .setrow {
+    flex-wrap: wrap;
+  }
+  .setrow > .seg,
+  .setrow > select,
+  .setrow > .input {
+    max-width: 100%;
+  }
+}
+
+/* plans sit side by side on a phone: swipe across, a little of the next one always showing; nothing is removed, everything is smaller */
+@media (max-width: 640px) {
+  .plans {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 14px var(--gutter) 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    -webkit-overflow-scrolling: touch;
+  }
+  .plan {
+    flex: 0 0 82%;
+    min-width: 0;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 18px;
+    scroll-snap-align: start;
+  }
+  .plan-h {
+    gap: 8px;
+  }
+  .plan-h h3 {
+    font-size: 17px;
+  }
+  .plan-ic {
+    transform: scale(0.8);
+    transform-origin: left center;
+    margin-right: -6px;
+  }
+  .plan-tag,
+  .plan-for {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .plan-p b {
+    font-size: 30px;
+  }
+  .plan-p em,
+  .plan-p .plan-save {
+    font-size: 11.5px;
+  }
+  .plan-buy {
+    height: 40px;
+    font-size: 13px;
+  }
+  .plan-secure {
+    font-size: 11px;
+  }
+  .plan ul {
+    gap: 6px;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .plan-inh {
+    font-size: 12px;
+  }
+  .plan-badge {
+    font-size: 9.5px;
+  }
+}
