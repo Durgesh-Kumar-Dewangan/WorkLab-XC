@@ -330,19 +330,24 @@ const CODES =
     ' ',
   );
 
+const STABLE_COUNTRY_NAMES: Record<string, string> = {
+  HK: 'Hong Kong',
+};
+
 export function countryName(code: string): string {
   if (!code) return '';
+  if (STABLE_COUNTRY_NAMES[code]) return STABLE_COUNTRY_NAMES[code];
   try {
-    return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) || code;
+    return new Intl.DisplayNames(['en-US'], { type: 'region' }).of(code) || code;
   } catch {
     return code;
   }
 }
 
-/** All countries, A to Z. */
+/** All countries, A to Z. Keep labels deterministic across server and browser ICU data. */
 export function countryOptions(): { value: string; label: string }[] {
   return CODES.map((code) => ({ value: code, label: countryName(code) })).sort((a, b) =>
-    a.label.localeCompare(b.label),
+    a.label < b.label ? -1 : a.label > b.label ? 1 : a.value < b.value ? -1 : 1,
   );
 }
 

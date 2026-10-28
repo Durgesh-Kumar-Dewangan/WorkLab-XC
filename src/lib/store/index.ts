@@ -23,7 +23,9 @@ const state: State = new Proxy({
 } as State, {
   get(target, key: string | symbol) {
     if (key in target) return target[key as keyof State];
-    if (typeof key === 'string' && key.startsWith('set')) return (...args: any[]) => Object.assign(target, args[0] ?? {});
+    if (key === 'setTheme') return (theme: string) => updateApp({ theme });
+    if (key === 'setSettings') return (settings: Record<string, unknown>) => updateApp({ settings: { ...(state.settings ?? {}), ...settings } });
+    if (typeof key === 'string' && key.startsWith('set')) return (...args: any[]) => updateApp(args[0] ?? {});
     return undefined;
   },
 });
