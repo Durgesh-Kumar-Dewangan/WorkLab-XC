@@ -174,7 +174,7 @@ function Lights({ quality, envId }: { quality: Quality; envId: string }) {
       ).map((p) => (
         <pointLight
           key={p.join()}
-          position={[...p]}
+          position={p}
           color={0xffd9a8}
           intensity={1.1}
           distance={12}

@@ -13,4 +13,4 @@ const subscribe = (cb: () => void) => {
   };
 };
 
-export const useIsDark = () => useSyncExternalStore(subscribe, isDark, () => true);
+export const useIsDark = () => useSyncExternalStore(subscribe, () => isDark(document.documentElement.dataset.theme || 'system'), () => true);

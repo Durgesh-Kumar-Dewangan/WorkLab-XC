@@ -193,7 +193,7 @@ interface InstallEvent extends Event {
 function SideStats() {
   const minutes = useApp((s) => s.minutes);
   const streak = streakDays(minutes);
-  const xp = Math.round(Object.values(minutes).reduce((a, b) => a + b, 0));
+  const xp = Math.round(Object.values(minutes as Record<string, number>).reduce((a, b) => a + b, 0));
   return (
     <div className="side-stats" aria-label="Your streak and points">
       <span title="Days in a row you studied">

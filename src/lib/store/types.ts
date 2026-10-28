@@ -1,4 +1,5 @@
-export type Quality = 'low' | 'medium' | 'high' | 'ultra';
+export type Quality = 'low' | 'medium' | 'high';
+export type LessonDepth = 'quick' | 'standard' | 'deep';
 export type ThemePref = 'light' | 'dark' | 'system';
 export type CustomLook = Record<string, string>;
 export type Settings = Record<string, any>;
