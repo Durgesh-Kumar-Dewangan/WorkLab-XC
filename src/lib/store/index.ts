@@ -2,7 +2,25 @@
 import { useSyncExternalStore } from 'react';
 
 type State = Record<string, any>;
-const state: State = new Proxy({ settings: {}, profile: {}, session: null, courses: [], notifications: [], minutes: {}, mastery: {}, gameBest: {}, assets: {} } as State, {
+const state: State = new Proxy({
+  theme: 'light',
+  settings: {
+    motion: 'full',
+    textSize: 'normal',
+    themedElements: true,
+    halftone: false,
+    scenicTone: 'dusk',
+    custom: {},
+  },
+  profile: {},
+  session: null,
+  courses: [],
+  notifications: [],
+  minutes: {},
+  mastery: {},
+  gameBest: {},
+  assets: {},
+} as State, {
   get(target, key: string | symbol) {
     if (key in target) return target[key as keyof State];
     if (typeof key === 'string' && key.startsWith('set')) return (...args: any[]) => Object.assign(target, args[0] ?? {});

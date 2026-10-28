@@ -519,6 +519,103 @@
   }
 }
 
+/* Previous WorkLab XC workspace skin: bright canvas, blue selection, green actions. */
+:root[data-theme='light'][data-skin='on'] {
+  --bg: #ffffff;
+  --bg2: #ffffff;
+  --panel: #ffffff;
+  --panel2: #f7f7f7;
+  --line: #dedede;
+  --line2: #d3d3d3;
+  --fg: #333333;
+  --fg2: #676767;
+  --fg3: #929292;
+  --blue: #20aaf0;
+  --accent: #20aaf0;
+  --green: #50c900;
+  --green-ink: #287d00;
+  --btn-bg: #50c900;
+  --btn-fg: #ffffff;
+  --gray-bar: #e4e4e4;
+  --shadow: 0 7px 0 rgba(0, 0, 0, 0.1);
+  --r-s: 8px;
+  --r-m: 16px;
+  --r-l: 24px;
+  color-scheme: light;
+}
+:root[data-theme='light'][data-skin='on'] body,
+:root[data-theme='light'][data-skin='on'] .app {
+  background: #ffffff;
+  color: var(--fg);
+}
+:root[data-theme='light'][data-skin='on'] .app .side {
+  background: #ffffff;
+  border-right: 1px solid #d7d7d7;
+  padding: 26px 16px 20px;
+}
+:root[data-theme='light'][data-skin='on'] .app .side .nav-brand {
+  padding: 8px 14px 30px;
+  color: #1d1d1d;
+  font-size: 20px;
+}
+:root[data-theme='light'][data-skin='on'] .app .side a.nl {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 18px;
+  color: #1f1f1f;
+  font-size: 16px;
+  font-weight: 650;
+}
+:root[data-theme='light'][data-skin='on'] .app .side a.nl:hover {
+  background: #f2f8fb;
+  color: #1796d3;
+}
+:root[data-theme='light'][data-skin='on'] .app .side a.nl[aria-current='page'] {
+  background: #dff3ff;
+  border: 2px solid #20b5ff;
+  color: #1699d5;
+  box-shadow: none;
+}
+:root[data-theme='light'][data-skin='on'] .app .topbar {
+  background: #ffffff;
+  border-bottom: 0;
+  height: 64px;
+}
+:root[data-theme='light'][data-skin='on'] .app .page {
+  max-width: 1440px;
+  padding: 42px 5.2vw 90px;
+  gap: 30px;
+}
+:root[data-theme='light'][data-skin='on'] .app .ph h1 {
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+:root[data-theme='light'][data-skin='on'] .app .card,
+:root[data-theme='light'][data-skin='on'] .app .course-card,
+:root[data-theme='light'][data-skin='on'] .app .stat {
+  border-color: #dedede;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+:root[data-theme='light'][data-skin='on'] .app .btn.solid {
+  background: #50c900;
+  border-color: #50c900;
+  color: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 5px 0 #319000;
+  font-weight: 750;
+}
+:root[data-theme='light'][data-skin='on'] .app .searchbtn {
+  border: 0;
+  background: #f7f7f7;
+  color: #13a5ee;
+  font-weight: 700;
+}
+:root[data-theme='light'][data-skin='on'] .app .side-stats {
+  color: #545454;
+}
+
 
 /* use your own AI key */
 .ak-form {
