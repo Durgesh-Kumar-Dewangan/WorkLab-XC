@@ -1,0 +1,70 @@
+# Render Blueprint: New → Blueprint → pick this repo. Fill the `sync: false` values in the dashboard.
+services:
+  - type: web
+    name: worklab-xc-api
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars: &env
+      - { key: APP_URL, value: https://worklabxc.com }
+      - { key: WLXC_ENV, value: production }
+      - { key: TRUST_PROXY, value: "1" }
+      - { key: WORKER_MODE, value: external }
+      - { key: DATABASE_URL, fromDatabase: { name: worklab-db, property: connectionString } }
+      - { key: SESSION_SECRET, generateValue: true }
+      - { key: CRON_SECRET, generateValue: true }
+      - { key: LLM_ORDER, value: "azure,openai,gemini,groq,mistral,openrouter,cloudflare,compat" }
+      - { key: GEMINI_API_KEY, sync: false }
+      - { key: GROQ_API_KEY, sync: false }
+      - { key: MISTRAL_API_KEY, sync: false }
+      - { key: OPENROUTER_API_KEY, sync: false }
+      - { key: OPENAI_API_KEY, sync: false }
+      - { key: AZURE_OPENAI_ENDPOINT, sync: false }
+      - { key: AZURE_OPENAI_API_KEY, sync: false }
+      - { key: AZURE_OPENAI_DEPLOYMENT, sync: false }
+      - { key: CF_ACCOUNT_ID, sync: false }
+      - { key: CF_API_TOKEN, sync: false }
+      - { key: RESEND_API_KEY, sync: false }
+      - { key: BREVO_API_KEY, sync: false }
+      - { key: ADMIN_EMAILS, sync: false }
+      - { key: RAZORPAY_KEY_ID, sync: false }
+      - { key: RAZORPAY_KEY_SECRET, sync: false }
+      - { key: RAZORPAY_WEBHOOK_SECRET, sync: false }
+      - { key: WHATSAPP_SUPPORT_NUMBER, sync: false }
+      - { key: WHATSAPP_TOKEN, sync: false }
+      - { key: WHATSAPP_PHONE_ID, sync: false }
+      - { key: WHATSAPP_OPS_TO, sync: false }
+      - { key: WHATSAPP_APP_SECRET, sync: false }
+      - { key: WHATSAPP_VERIFY_TOKEN, sync: false }
+      - { key: GOOGLE_CLIENT_ID, sync: false }
+      - { key: MAIL_UPDATES, value: "WorkLab XC <hello@worklabxc.com>" }
+      - { key: N8N_WEBHOOK_URL, sync: false }
+      - { key: N8N_SHARED_SECRET, sync: false }
+  - type: worker
+    name: worklab-xc-worker
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    dockerTarget: worker
+    envVars: *env
+  - type: web
+    name: worklab-xc-web
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    domains: [worklabxc.com, www.worklabxc.com]
+    envVars:
+      - { key: API_ORIGIN, value: https://worklab-xc-api.onrender.com }
+      - { key: NEXT_PUBLIC_WLXC_API_BASE, value: /api }
+      - { key: NEXT_PUBLIC_WLXC_CURRENCY, value: "₹" }
+      - { key: NEXT_PUBLIC_ADSENSE_CLIENT, sync: false }
+      - { key: NEXT_PUBLIC_GOOGLE_CLIENT_ID, sync: false }
+databases:
+  - name: worklab-db
+    plan: basic-256mb
+    databaseName: worklab

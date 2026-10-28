@@ -1,0 +1,38 @@
+# Local production-like stack:  docker compose up --build     then open http://localhost:3000
+# Postgres tables are created by the API on first start (DB_AUTO_MIGRATE).
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: wlxc, POSTGRES_PASSWORD: wlxc, POSTGRES_DB: wlxc }
+    volumes: [dbdata:/var/lib/postgresql/data]
+    healthcheck: { test: ['CMD-SHELL', 'pg_isready -U wlxc'], interval: 5s, retries: 10 }
+  api:
+    build: { context: ./backend }
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://wlxc:wlxc@db:5432/wlxc?sslmode=disable
+      WORKER_MODE: external
+    depends_on: { db: { condition: service_healthy } }
+    ports: ['8000:8000']
+  worker:
+    build: { context: ./backend, target: worker }
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://wlxc:wlxc@db:5432/wlxc?sslmode=disable
+    depends_on: { db: { condition: service_healthy } }
+  web:
+    build:
+      context: .
+      args:
+        API_ORIGIN: 'http://api:8000'
+        NEXT_PUBLIC_WLXC_API_BASE: '/api'
+        NEXT_PUBLIC_WLXC_CURRENCY: '₹'
+        NEXT_PUBLIC_ADSENSE_CLIENT: '${NEXT_PUBLIC_ADSENSE_CLIENT:-}'
+        NEXT_PUBLIC_ADSENSE_SLOT_DASHBOARD: '${NEXT_PUBLIC_ADSENSE_SLOT_DASHBOARD:-}'
+        NEXT_PUBLIC_ADSENSE_SLOT_LESSON: '${NEXT_PUBLIC_ADSENSE_SLOT_LESSON:-}'
+        NEXT_PUBLIC_ADSENSE_SLOT_PANEL: '${NEXT_PUBLIC_ADSENSE_SLOT_PANEL:-}'
+        NEXT_PUBLIC_GOOGLE_CLIENT_ID: '${NEXT_PUBLIC_GOOGLE_CLIENT_ID:-}'
+    ports: ['3000:3000']
+    depends_on: [api]
+volumes:
+  dbdata:
