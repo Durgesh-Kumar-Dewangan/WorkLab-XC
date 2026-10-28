@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "worklab-xc-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "observability": { "enabled": true },
+  "vars": {
+    // where the Python API lives; the site forwards /api/* there so cookies stay on your own domain
+    "API_ORIGIN": "https://worklab-xc-api.fly.dev",
+    "NEXT_PUBLIC_WLXC_API_BASE": "/api"
+  }
+}

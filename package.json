@@ -1,0 +1,62 @@
+{
+  "name": "worklab-xc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WorkLab XC — turn a course outline into lessons you can follow. Next.js, React Three Fiber, Zustand, Tailwind v4.",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "setup": "python scripts/install.py",
+    "doctor": "python scripts/install.py --doctor",
+    "app": "python scripts/run.py --open",
+    "app:prod": "python scripts/run.py --prod --open",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "test": "vitest run",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^8.56.2",
+    "@babylonjs/loaders": "^8.56.2",
+    "@fontsource-variable/dm-sans": "^5.2.0",
+    "@fontsource-variable/jetbrains-mono": "^5.2.0",
+    "@react-three/drei": "^10.7.0",
+    "@react-three/fiber": "^9.4.0",
+    "clsx": "^2.1.1",
+    "idb-keyval": "^6.2.1",
+    "immer": "^10.1.0",
+    "next": "^16.0.0",
+    "qrcode-generator": "^2.0.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.13",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.180.0",
+    "@types/topojson-client": "^3.1.5",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "prettier": "^3.3.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "wrangler": "^4.152.0"
+  }
+}
