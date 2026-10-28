@@ -28,5 +28,6 @@ services:
       - { key: LLM_ORDER, value: "gemini,groq,mistral,openrouter,cloudflare" }
       - { key: GEMINI_API_KEY, sync: false }      # free key: https://aistudio.google.com/apikey
       - { key: GROQ_API_KEY, sync: false }        # free key: https://console.groq.com/keys
-      - { key: ADMIN_EMAILS, sync: false }
+      - { key: ADMIN_EMAILS
+          value: "worklab.xc@gmail.com"}
       - { key: RESEND_API_KEY, sync: false }      # optional: sign-up and receipt emails (free tier)
