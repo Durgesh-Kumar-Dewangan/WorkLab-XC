@@ -3,7 +3,7 @@ import { useSyncExternalStore } from 'react';
 
 type State = Record<string, any>;
 const state: State = new Proxy({
-  theme: 'worldlab',
+  theme: 'light',
   settings: {
     motion: 'full',
     textSize: 'normal',

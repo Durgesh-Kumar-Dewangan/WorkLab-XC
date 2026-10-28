@@ -17,7 +17,7 @@ export function PrefsSync() {
   const scenicTone = useApp((s) => s.settings.scenicTone);
 
   useEffect(() => {
-    void useApp.persist.rehydrate();
+    void useApp.persist?.rehydrate?.();
     return installCardSpotlight();
   }, []);
 

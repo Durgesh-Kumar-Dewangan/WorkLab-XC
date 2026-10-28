@@ -18,6 +18,7 @@ export type ConfirmOptions = { title?: string; body?: string; confirmLabel?: str
 let nextId = 0;
 let stack: ModalEntry[] = [];
 const listeners = new Set<() => void>();
+const EMPTY_MODALS: ModalEntry[] = [];
 const emit = () => listeners.forEach((listener) => listener());
 
 export function openModal(entry: Omit<ModalEntry, 'id'>) {
@@ -42,7 +43,7 @@ export function useModals() {
       return () => listeners.delete(listener);
     },
     () => stack,
-    () => [],
+    () => EMPTY_MODALS,
   );
 }
 
