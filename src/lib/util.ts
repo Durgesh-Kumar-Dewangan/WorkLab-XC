@@ -1,0 +1,11 @@
+export const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+export const ease = ((t: number) => t * t * (3 - 2 * t)) as any;
+export const cssVar = (name: string) => `var(--${name})`;
+export const seeded = (seed: number) => { let value = seed || 1; return () => { value = (value * 16807) % 2147483647; return (value - 1) / 2147483646; }; };
+export const prefersReducedMotion = () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+export const dayKey = (date = new Date()) => { const d = new Date(date); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
+export const fmtTime = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+export const ago = (value: string | number | Date) => { const ms = Date.now() - new Date(value).getTime(); const mins = Math.max(0, Math.floor(ms / 60000)); return mins < 60 ? `${mins}m ago` : `${Math.floor(mins / 60)}h ago`; };
+export const isDark = (theme: string) => theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+export const speechAvailable = () => typeof window !== 'undefined' && 'speechSynthesis' in window;
