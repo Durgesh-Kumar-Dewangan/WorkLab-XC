@@ -74,7 +74,7 @@ function showData() {
         kind: 'solid',
         closes: false,
         onClick: () => {
-          void copyText(txt, 'Data copied');
+          void copyText(txt);
           return false;
         },
       },

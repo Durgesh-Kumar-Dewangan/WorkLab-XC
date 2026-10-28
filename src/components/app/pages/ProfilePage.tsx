@@ -98,7 +98,7 @@ export function ProfilePage() {
     }
   };
 
-  const total = Object.values(minutes).reduce((a, b) => a + b, 0);
+  const total = Object.values(minutes as Record<string, number>).reduce((a, b) => a + b, 0);
   const plan = me?.user.plan === 'learner' ? 'Beta' : me?.user.plan === 'classroom' ? 'Classroom' : 'Free';
 
   return (
